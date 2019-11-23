@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<style type="text/css">
+			body {
+				-webkit-perspective: 800px;
+			}
+			#container {
+				width: 300px;
+				height: 300px;
+				border: 2px dashed red;
+				margin: 50px auto;
+				position: relative;
+				-webkit-transform-style: preserve-3d;
+				-webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			}
+			input {
+				margin-top: 50px;
+			}
+			#container div {
+				width: 300px;
+				height: 300px;
+				text-align: center;
+				font-size: 50px;
+				line-height: 300px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			.d1 {
+				background: red;
+				opacity: 0.8;
+				-webkit-transform: translateZ(150px);
+			}
+			.d6 {
+				background: blue;
+				opacity: 0.8;
+				-webkit-transform: translateZ(-150px);
+			}
+			.d2 {
+				background: green;
+				opacity: 0.8;
+				-webkit-transform: rotateY(90deg) translateZ(-150px);
+			}
+			.d3 {
+				background: gold;
+				opacity: 0.8;
+				-webkit-transform: rotateY(90deg) translateZ(150px);
+			}
+			.d4 {
+				background: pink;
+				opacity: 0.8;
+				-webkit-transform: rotateX(90deg) translateZ(150px);
+			}
+			.d5 {
+				background: mediumslateblue;
+				opacity: 0.8;
+				-webkit-transform: rotateX(90deg) translateZ(-150px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="d1">1</div>
+			<div class="d2">2</div>
+			<div class="d3">3</div>
+			<div class="d4">4</div>
+			<div class="d5">5</div>
+			<div class="d6">6</div>
+		</div>
+		<input type="range" id="rotateX" value="0" min="0" max="360"/>
+		<input type="range" id="rotateY" value="0" min="0" max="360"/>
+		<input type="range" id="rotateZ" value="0" min="0" max="360"/>
+		<script type="text/javascript">
+			$("input").on("input", function() {
+				var x = $("#rotateX").val();
+				var y = $("#rotateY").val();
+				var z = $("#rotateZ").val();
+				console.log(typeof("+1+"));
+				$("#container").css("-webkit-transform","rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)");
+			})
+		</script>
+	</body>
+</html>
